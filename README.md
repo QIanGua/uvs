@@ -1,5 +1,7 @@
 # uvs
 
+[中文文档](README.zh.md)
+
 Automatically inject [PEP 723](https://peps.python.org/pep-0723/) inline script metadata into Python scripts so they can be run with `uv run` without any manual dependency management.
 
 ---
