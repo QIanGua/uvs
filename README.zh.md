@@ -4,6 +4,35 @@
 
 ---
 
+## Claude Code Skill
+
+在 [Claude Code](https://claude.ai/code) 中通过 `/uvs` 命令直接使用。
+
+**安装到当前项目**：
+
+```bash
+mkdir -p .claude/skills/uvs
+curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
+  -o .claude/skills/uvs/SKILL.md
+```
+
+**全局安装**（所有项目可用）：
+
+```bash
+mkdir -p ~/.claude/skills/uvs
+curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
+  -o ~/.claude/skills/uvs/SKILL.md
+```
+
+安装后在 Claude Code 中使用：
+
+```
+/uvs script.py
+/uvs --dry-run script.py
+```
+
+---
+
 ## 功能说明
 
 `uvs` 读取 Python 脚本，通过 AST 解析所有 `import` 语句，将每个模块分类为**标准库 / 本地模块 / 第三方库**，然后在文件顶部写入（或更新）`# /// script` 块。
@@ -114,35 +143,6 @@ script.py
 ## 更新已有头部
 
 如果脚本已有 `# /// script` 块，`uvs` **只替换 `dependencies` 列表**，其他字段——`requires-python`、`[tool.uv]`、自定义 index 源等——保持不变。
-
----
-
-## Claude Code Skill
-
-在 [Claude Code](https://claude.ai/code) 中通过 `/uvs` 命令直接使用。
-
-### 安装到当前项目
-
-```bash
-mkdir -p .claude/skills/uvs
-curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
-  -o .claude/skills/uvs/SKILL.md
-```
-
-### 全局安装（所有项目可用）
-
-```bash
-mkdir -p ~/.claude/skills/uvs
-curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
-  -o ~/.claude/skills/uvs/SKILL.md
-```
-
-安装后在 Claude Code 中使用：
-
-```
-/uvs script.py
-/uvs --dry-run script.py
-```
 
 ---
 

@@ -6,6 +6,35 @@ Automatically inject [PEP 723](https://peps.python.org/pep-0723/) inline script 
 
 ---
 
+## Claude Code Skill
+
+Use `uvs` directly from [Claude Code](https://claude.ai/code) via the `/uvs` slash command.
+
+**Project-level** (current repo only):
+
+```bash
+mkdir -p .claude/skills/uvs
+curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
+  -o .claude/skills/uvs/SKILL.md
+```
+
+**Global** (all projects):
+
+```bash
+mkdir -p ~/.claude/skills/uvs
+curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
+  -o ~/.claude/skills/uvs/SKILL.md
+```
+
+Then in Claude Code:
+
+```
+/uvs script.py
+/uvs --dry-run script.py
+```
+
+---
+
 ## What it does
 
 `uvs` reads a Python script, parses every `import` statement with the AST, classifies each module as **stdlib / local / third-party**, then writes (or updates) the `# /// script` block at the top of the file.
@@ -116,39 +145,6 @@ Relative imports (`from .foo import bar`) are always treated as local and never 
 ## Updating an existing header
 
 If the script already has a `# /// script` block, `uvs` **only replaces the `dependencies` list**. All other fields — `requires-python`, `[tool.uv]`, custom index sources, etc. — are left untouched.
-
----
-
-## Claude Code Skill
-
-Use `uvs` directly from [Claude Code](https://claude.ai/code) via the `/uvs` slash command.
-
-### Install (project-level)
-
-Copy the skill into your project:
-
-```bash
-mkdir -p .claude/skills/uvs
-curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
-  -o .claude/skills/uvs/SKILL.md
-```
-
-### Install (global)
-
-Available across all your projects:
-
-```bash
-mkdir -p ~/.claude/skills/uvs
-curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
-  -o ~/.claude/skills/uvs/SKILL.md
-```
-
-Then in Claude Code:
-
-```
-/uvs script.py
-/uvs --dry-run script.py
-```
 
 ---
 
