@@ -117,6 +117,35 @@ script.py
 
 ---
 
+## Claude Code Skill
+
+在 [Claude Code](https://claude.ai/code) 中通过 `/uvs` 命令直接使用。
+
+### 安装到当前项目
+
+```bash
+mkdir -p .claude/skills/uvs
+curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
+  -o .claude/skills/uvs/SKILL.md
+```
+
+### 全局安装（所有项目可用）
+
+```bash
+mkdir -p ~/.claude/skills/uvs
+curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
+  -o ~/.claude/skills/uvs/SKILL.md
+```
+
+安装后在 Claude Code 中使用：
+
+```
+/uvs script.py
+/uvs --dry-run script.py
+```
+
+---
+
 ## 环境要求
 
 - Python 3.10+（使用 `sys.stdlib_module_names`；3.8+ 可运行但标准库识别能力降级）

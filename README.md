@@ -119,6 +119,39 @@ If the script already has a `# /// script` block, `uvs` **only replaces the `dep
 
 ---
 
+## Claude Code Skill
+
+Use `uvs` directly from [Claude Code](https://claude.ai/code) via the `/uvs` slash command.
+
+### Install (project-level)
+
+Copy the skill into your project:
+
+```bash
+mkdir -p .claude/skills/uvs
+curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
+  -o .claude/skills/uvs/SKILL.md
+```
+
+### Install (global)
+
+Available across all your projects:
+
+```bash
+mkdir -p ~/.claude/skills/uvs
+curl -fsSL https://raw.githubusercontent.com/QIanGua/uvs/main/.claude/skills/uvs/SKILL.md \
+  -o ~/.claude/skills/uvs/SKILL.md
+```
+
+Then in Claude Code:
+
+```
+/uvs script.py
+/uvs --dry-run script.py
+```
+
+---
+
 ## Requirements
 
 - Python 3.10+ (for `sys.stdlib_module_names`; works on 3.8+ with degraded stdlib detection)
